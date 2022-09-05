@@ -1,6 +1,7 @@
-import { Button, Drawer, Link } from '@material-ui/core'
+import { Button, Drawer } from '@material-ui/core'
 import { Dehaze } from '@material-ui/icons'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function SideDrawer() {
     const [ isOpen, setIsOpen ] = useState(false);
@@ -43,11 +44,7 @@ export default function SideDrawer() {
                 {links.map((item) => {
                     return(
                         <div>
-                            <Link
-                                href={item.href}
-                                component="button"
-                                variant="body2"
-                                >
+                            <Link to={item.href}>
 
                                 <Button>
                                     {item.name}

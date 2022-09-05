@@ -1,8 +1,7 @@
-import { AppBar, Toolbar } from '@material-ui/core'
-import React from 'react'
-import Drawer from '../SideDrawer/SideDrawer'
+import { AppBar, Toolbar } from '@material-ui/core';
+import Drawer from '../SideDrawer/SideDrawer';
 
-export default function () {
+const NavBar = () => {
   return (
     <div>
         <AppBar position='static' color='primary'>
@@ -14,3 +13,5 @@ export default function () {
     </div>
   )
 }
+
+export default NavBar;
