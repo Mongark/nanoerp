@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Paper, Typography } from "@material-ui/core";
 import { useState } from "react";
 import DataTable from "../../Components/DataTable/DataTable";

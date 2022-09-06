@@ -1,6 +1,8 @@
+import React from 'react';
+
 import { Button, Drawer } from '@material-ui/core'
 import { Dehaze } from '@material-ui/icons'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 export default function SideDrawer() {
