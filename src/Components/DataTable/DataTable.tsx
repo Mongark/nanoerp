@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@material-ui/core";
-import { useState } from "react";
+
+import './styles.css'
 
 const DataTable = ( props: any ) => {
 
@@ -9,7 +10,7 @@ const DataTable = ( props: any ) => {
         <div>
             <TableContainer component={Paper}>
                 <Table>
-                    <TableHead>
+                    <TableHead className='Head'>
                         <TableRow>
                             {props.tableHead.map(( item: any ) => {
                                 return(
