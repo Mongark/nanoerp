@@ -14,20 +14,8 @@ export default function SideDrawer() {
             "href": "/"
         },
         {
-            "name": "Bookings",
-            "href": "/bookings"
-        },
-        {
             "name": "Rooms",
             "href": "/rooms"
-        },
-        {
-            "name": "Accommodations",
-            "href": "/accommodations"
-        },
-        {
-            "name": "Guests",
-            "href": "/guests"
         },
     ];
 
