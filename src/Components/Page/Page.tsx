@@ -1,12 +1,16 @@
 import { Paper } from '@material-ui/core'
 import React from 'react'
 
-import './styles.css';
+const style = {
+    padding: '2%',
+};
 
-export default function Page() {
+const Page = () => {
   return (
     <div>
-        <Paper className='Page' />
+        <Paper style={style} />
     </div>
   )
 }
+
+export default Page;

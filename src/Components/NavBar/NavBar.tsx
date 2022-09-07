@@ -1,15 +1,16 @@
 import React from 'react';
 
-import { AppBar, Toolbar } from '@material-ui/core';
-import Drawer from '../SideDrawer/SideDrawer';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import SideDrawer from '../SideDrawer/SideDrawer';
 
 const NavBar = () => {
   return (
     <div>
         <AppBar position='static' color='primary'>
             <Toolbar>
-                <Drawer />
-                NanoERP
+                <SideDrawer />
+                
+                <Typography style={{fontWeight: '600'}} variant='h5'>NanoERP</Typography>
             </Toolbar>
         </AppBar>
     </div>

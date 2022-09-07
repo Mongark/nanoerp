@@ -1,4 +1,4 @@
-import { Box, Container } from '@material-ui/core';
+import { Box, Container, CssBaseline } from '@material-ui/core';
 import React from 'react';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -9,19 +9,28 @@ import Rooms from './Pages/Rooms/Rooms';
 
 function App() {
   return (
-    <Box>
+    <div style={{
+        height: '100vh'
+      }}>
+      <CssBaseline />
+
       <Router>
         <NavBar />
 
-        <Container style={{background: 'blue', padding: '3%', height: '100%'}}>
+        <div style={
+          {
+            background: 'lightblue',
+            padding: '3%',
+            height: '100%'
+          }}>
           <Routes>
             <Route path='/' element={<Dashboard />} />
             <Route path='/rooms' element={<Rooms />} />
           </Routes>
-        </Container>
+        </div>
         
       </Router>
-    </Box>
+    </div>
   );
 }
 

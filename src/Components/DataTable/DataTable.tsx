@@ -14,7 +14,7 @@ const DataTable = ( props: any ) => {
                         <TableRow>
                             {props.tableHead.map(( item: any ) => {
                                 return(
-                                    <TableCell>{ item }</TableCell>
+                                    <TableCell style={{background: 'lightgrey'}}>{ item }</TableCell>
                                 );
                             })}
                         </TableRow>

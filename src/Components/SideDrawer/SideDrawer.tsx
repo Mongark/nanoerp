@@ -36,7 +36,10 @@ export default function SideDrawer() {
                         <div>
                             <Link to={item.href}>
 
-                                <Button>
+                                <Button style={{
+                                        width: '100%',
+                                        justifyContent: 'left',
+                                    }}>
                                     {item.name}
                                 </Button>
                             </Link>

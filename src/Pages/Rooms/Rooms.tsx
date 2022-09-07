@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as FirebaseServices from '../../Firebase/FirebaseService';
 
-import { Box, Button, Paper, Typography } from "@material-ui/core";
+import { Box, Button, Divider, Paper, Typography } from "@material-ui/core";
 import { useState } from "react";
 import DataTable from "../../Components/DataTable/DataTable";
 
@@ -44,14 +44,17 @@ const Rooms = () => {
 
     return (
         <div>
-            <Paper className="Rooms">
-                <Typography>Rooms</Typography>
+            <Paper style={{padding: '2%'}}>
+                <Typography variant='h5'>Rooms</Typography>
+
+                <Divider style={{marginTop: '0.5%', marginBottom: '0.5%'}} />
 
                 <Box>
                     <Button
                         variant='contained'
                         color='secondary'
                         onClick={ refresh }
+                        style={{margin: '0.5%', marginLeft: '0'}}
                         >
                             Refresh
                     </Button>
@@ -60,12 +63,13 @@ const Rooms = () => {
                         variant='contained'
                         color='secondary'
                         onClick={ addRoom }
+                        style={{margin: '0.5%'}}
                         >
                             Add Room
                     </Button>
                 </Box>
 
-                <DataTable tableHead={tableHead} tableBody={tableBody} />
+                <DataTable style={{marginTop: '1%'}} tableHead={tableHead} tableBody={tableBody} />
             </Paper>
             
         </div>
