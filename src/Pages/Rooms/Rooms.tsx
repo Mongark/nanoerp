@@ -54,7 +54,7 @@ const Rooms = () => {
                         variant='contained'
                         color='secondary'
                         onClick={ refresh }
-                        style={{margin: '0.5%', marginLeft: '0'}}
+                        style={{margin: '0.5%', marginLeft: '0', marginRight: '0.25%'}}
                         >
                             Refresh
                     </Button>
