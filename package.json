@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "webpack serve --mode development --open --hot",
+    "start": "webpack-dev-server",
     "build": "webpack --mode production",
     "test": "mocha -r ts-node/register 'tests/**/*.ts'"
   },

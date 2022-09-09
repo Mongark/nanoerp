@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@material-ui/core";
+import { Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@material-ui/core";
 
 import './styles.css'
 
@@ -12,20 +12,34 @@ const DataTable = ( props: any ) => {
                 <Table>
                     <TableHead className='Head'>
                         <TableRow>
-                            {props.tableHead.map(( item: any ) => {
+                            {props.tableHead.map(( item: any, index: number ) => {
                                 return(
-                                    <TableCell style={{background: 'lightgrey'}}>{ item }</TableCell>
+                                    <TableCell key={ index } style={{ background: 'lightgrey' }}>
+                                        {
+                                            ( item.type == "unit" )
+                                                ? <Typography>{ item.value }</Typography> :
+                                            ( item.type == "select" )
+                                                ? <Select>{ item.value }</Select> : "invalid"
+                                        }
+                                    </TableCell>
                                 );
                             })}
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {props.tableBody.map((row: any) => {
+                        {props.tableBody.map(( row: any, index: number ) => {
                             return(
-                                <TableRow>
-                                    {row.map((item: any) => {
+                                <TableRow key={ index }>
+                                    {row.map(( item: any, index2: number ) => {
                                         return(
-                                            <TableCell>{ item }</TableCell>
+                                            <TableCell key={ index2 }>
+                                                {
+                                                    ( item.type == "unit" )
+                                                    ? item.value :
+                                                ( item.type == "select" )
+                                                    ? <Select>{ item.value }</Select> : "invalid"
+                                                }
+                                            </TableCell>
                                         );
                                     })}
                                 </TableRow>

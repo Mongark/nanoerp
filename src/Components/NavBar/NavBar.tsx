@@ -10,7 +10,7 @@ const NavBar = () => {
             <Toolbar>
                 <SideDrawer />
                 
-                <Typography style={{fontWeight: '600'}} variant='h5'>NanoERP</Typography>
+                <Typography style={{ fontWeight: '600' }} variant='h5'>NanoERP</Typography>
             </Toolbar>
         </AppBar>
     </div>

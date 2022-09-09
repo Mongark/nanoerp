@@ -1,29 +1,39 @@
 import React from 'react';
 
-import * as FirebaseServices from '../../Firebase/FirebaseService';
+import * as FirebaseService from '../../Firebase/FirebaseService';
 
 import { Box, Button, Divider, Paper, Typography } from "@material-ui/core";
 import { useState } from "react";
 import DataTable from "../../Components/DataTable/DataTable";
 
 import './styles.css';
+import RoomInterface from 'src/Interfaces/RoomInterface';
 
 const Rooms = () => {
-    const [ tableHead, setTableHead ] = useState(["Name"]);
+    const [ tableHead, setTableHead ] = useState([
+        {
+            type: "unit",
+            value: "Name"
+        },
+        {
+            type: "unit",
+            value: "Status"
+        }
+    ]);
     const [ tableBody, setTableBody ] = useState([[]]);
 
     const refresh = () => {
         try {
             // TODO: refactor this
-            FirebaseServices.getRooms().then((item) => {
+            FirebaseService.getRooms().then(( item: any ) => {
                 let data: any = [];
-                item.docs.map(( dt ) => {
+                item.docs.map(( dt: any ) => {
                     const rw = dt.data();
-                    data = [...data, [ rw[ "name" ] ]];
+                    data = [...data, [ rw[ "name" ], rw[ "status" ] ]];
                 });
                 
                 setTableBody( data ); 
-            }).catch(( err ) => alert( err ));
+            }).catch(( err: any ) => alert( err ));
         } catch ( error ) {
             alert( error );
         }
@@ -31,13 +41,25 @@ const Rooms = () => {
 
     const addRoom = () => {
         try {
+            const sample_room: RoomInterface = {
+                name: {
+                    type: "unit",
+                    value: "New room name"
+                },
+                status: {
+                    type: "select",
+                    value: "Vacant"
+                }
+            }
+
             // TODO: refactor this
-            FirebaseServices.addRoom({name: "Added room"}).then((item) => {
-                refresh(); 
-            }).catch(( err ) => alert( err ));
-        } catch ( error ) {
-            alert( error );
-        }
+            FirebaseService.addRoom( sample_room )
+                .then(( item: any ) => {
+                    refresh();
+                }
+            ).catch(( err: any ) => alert( err ));
+
+        } catch ( error ) { alert( error )};
     }
 
     refresh();
