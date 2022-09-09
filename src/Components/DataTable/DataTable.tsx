@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@material-ui/core";
+import { MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@material-ui/core";
 
 import './styles.css'
+import Status from '../Status/Status';
 
 const DataTable = ( props: any ) => {
 
@@ -34,10 +35,10 @@ const DataTable = ( props: any ) => {
                                         return(
                                             <TableCell key={ index2 }>
                                                 {
-                                                    ( item.type == "unit" )
-                                                    ? item.value :
-                                                ( item.type == "select" )
-                                                    ? <Select>{ item.value }</Select> : "invalid"
+                                                    ( item.type == 'unit' ) ?
+                                                        <Typography>{ item.value }</Typography> :
+
+                                                        <Status value={ item.value } />
                                                 }
                                             </TableCell>
                                         );
