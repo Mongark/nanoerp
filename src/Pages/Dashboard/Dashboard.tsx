@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Divider, FormControl, Paper, Typography } from "@material-ui/core";
+import { Divider, Paper, Typography } from "@material-ui/core";
 
 const Dashboard = () => {
     return (

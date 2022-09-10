@@ -8,6 +8,7 @@ import DataTable from "../../Components/DataTable/DataTable";
 
 import './styles.css';
 import RoomInterface from 'src/Interfaces/RoomInterface';
+import { PlusOne, Replay } from '@material-ui/icons';
 
 const Rooms = () => {
     const [ tableHead, setTableHead ] = useState([
@@ -18,6 +19,10 @@ const Rooms = () => {
         {
             type: "unit",
             value: "Status"
+        },
+        {
+            type: "unit",
+            value: "Edit"
         }
     ]);
     const [ tableBody, setTableBody ] = useState([[]]);
@@ -27,9 +32,22 @@ const Rooms = () => {
             // TODO: refactor this
             FirebaseService.getRooms().then(( item: any ) => {
                 let data: any = [];
+                const edit = {
+                    type: "unit",
+                    value:
+                        <Box>
+                            <Button style={{ fontSize: '70%', marginRight: '2%' }} variant='contained' color='primary'>
+                                Edit
+                            </Button>
+                            <Button style={{ fontSize: '70%', marginRight: '2%' }} variant='contained' color='secondary'>
+                                Delete
+                            </Button>
+                        </Box>
+                };
+
                 item.docs.map(( dt: any ) => {
                     const rw = dt.data();
-                    data = [...data, [ rw[ "name" ], rw[ "status" ] ]];
+                    data = [...data, [ rw[ "name" ], rw[ "status" ], edit ]];
                 });
                 
                 setTableBody( data ); 
@@ -57,9 +75,9 @@ const Rooms = () => {
                 .then(( item: any ) => {
                     refresh();
                 }
-            ).catch(( err: any ) => alert( err ));
+            ).catch(( err: any ) => console.log( err ));
 
-        } catch ( error ) { alert( error )};
+        } catch ( error ) { console.log( error )};
     }
 
     refresh();
@@ -69,27 +87,37 @@ const Rooms = () => {
             <Paper style={{padding: '2%'}}>
                 <Typography variant='h5'>Rooms</Typography>
 
-                <Divider style={{marginTop: '0.5%', marginBottom: '0.5%'}} />
-
-                <Box>
+                <Box style={{
+                        marginTop: '0.25%'
+                    }}>
                     <Button
                         variant='contained'
-                        color='secondary'
-                        onClick={ refresh }
-                        style={{margin: '0.5%', marginLeft: '0', marginRight: '0.25%'}}
+                        color='primary'
+                        onClick={ addRoom }
+                        style={{
+                            margin: '0.5%',
+                            marginLeft: '0',
+                            marginRight: '0.4%',
+                            float: 'right',
+                        }}
                         >
-                            Refresh
+                            <PlusOne /> Add Room
                     </Button>
                     
                     <Button
                         variant='contained'
-                        color='secondary'
-                        onClick={ addRoom }
-                        style={{margin: '0.5%'}}
+                        color='primary'
+                        onClick={ refresh }
+                        style={{
+                            margin: '0.5%',
+                            float: 'right',
+                        }}
                         >
-                            Add Room
+                            <Replay />
                     </Button>
                 </Box>
+
+                <Divider style={{ marginTop: '0.5%', marginBottom: '1.16%' }} />
 
                 <DataTable style={{marginTop: '1%'}} tableHead={tableHead} tableBody={tableBody} />
             </Paper>

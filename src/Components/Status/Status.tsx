@@ -5,8 +5,7 @@ export default function Status(props: any) {
     return (
         <div>
             <Select
-                variant='filled'
-                color='secondary'
+                variant='standard'
                 value={ props.value }
                 >
                     <MenuItem

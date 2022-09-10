@@ -15,12 +15,11 @@ const DataTable = ( props: any ) => {
                         <TableRow>
                             {props.tableHead.map(( item: any, index: number ) => {
                                 return(
-                                    <TableCell key={ index } style={{ background: 'lightgrey' }}>
+                                    <TableCell align={(item.value!='Edit') ? "left":"right"} key={ index } style={{ background: 'lightgrey' }}>
                                         {
-                                            ( item.type == "unit" )
-                                                ? <Typography>{ item.value }</Typography> :
-                                            ( item.type == "select" )
-                                                ? <Select>{ item.value }</Select> : "invalid"
+                                            <Typography style={{ fontWeight: 600 }}>
+                                                { item.value }
+                                            </Typography>
                                         }
                                     </TableCell>
                                 );
@@ -33,11 +32,10 @@ const DataTable = ( props: any ) => {
                                 <TableRow key={ index }>
                                     {row.map(( item: any, index2: number ) => {
                                         return(
-                                            <TableCell key={ index2 }>
+                                            <TableCell align={(index2!=2) ? "left":"right"} key={ index2 }>
                                                 {
                                                     ( item.type == 'unit' ) ?
                                                         <Typography>{ item.value }</Typography> :
-
                                                         <Status value={ item.value } />
                                                 }
                                             </TableCell>
