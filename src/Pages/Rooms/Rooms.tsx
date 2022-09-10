@@ -22,7 +22,7 @@ const Rooms = () => {
         },
         {
             type: "unit",
-            value: "Edit"
+            value: ""
         }
     ]);
     const [ tableBody, setTableBody ] = useState([[]]);
@@ -36,11 +36,27 @@ const Rooms = () => {
                     type: "unit",
                     value:
                         <Box>
-                            <Button style={{ fontSize: '70%', marginRight: '2%' }} variant='contained' color='primary'>
-                                Edit
-                            </Button>
-                            <Button style={{ fontSize: '70%', marginRight: '2%' }} variant='contained' color='secondary'>
+                            <Button
+                                style={{
+                                    float: 'right',
+                                    fontSize: '70%',
+                                    marginRight: '2%'
+                                }}
+                                variant='contained'
+                                color='secondary'
+                                >
                                 Delete
+                            </Button>
+                            <Button
+                                style={{ 
+                                    float: 'right',
+                                    fontSize: '70%',
+                                    marginRight: '2%'
+                                }}
+                                variant='contained'
+                                color='primary'
+                                >
+                                Edit
                             </Button>
                         </Box>
                 };
@@ -98,10 +114,15 @@ const Rooms = () => {
                             margin: '0.5%',
                             marginLeft: '0',
                             marginRight: '0.4%',
-                            float: 'right',
                         }}
                         >
-                            <PlusOne /> Add Room
+                            <Typography
+                                style={{
+                                    fontWeight: 500
+                                }}
+                            >
+                                Add
+                            </Typography>
                     </Button>
                     
                     <Button
@@ -110,7 +131,6 @@ const Rooms = () => {
                         onClick={ refresh }
                         style={{
                             margin: '0.5%',
-                            float: 'right',
                         }}
                         >
                             <Replay />

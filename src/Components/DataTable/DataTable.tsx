@@ -15,7 +15,7 @@ const DataTable = ( props: any ) => {
                         <TableRow>
                             {props.tableHead.map(( item: any, index: number ) => {
                                 return(
-                                    <TableCell align={(item.value!='Edit') ? "left":"right"} key={ index } style={{ background: 'lightgrey' }}>
+                                    <TableCell key={ index } style={{ background: 'lightgrey' }}>
                                         {
                                             <Typography style={{ fontWeight: 600 }}>
                                                 { item.value }
@@ -32,7 +32,7 @@ const DataTable = ( props: any ) => {
                                 <TableRow key={ index }>
                                     {row.map(( item: any, index2: number ) => {
                                         return(
-                                            <TableCell align={(index2!=2) ? "left":"right"} key={ index2 }>
+                                            <TableCell key={ index2 }>
                                                 {
                                                     ( item.type == 'unit' ) ?
                                                         <Typography>{ item.value }</Typography> :
