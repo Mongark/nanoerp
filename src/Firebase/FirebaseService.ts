@@ -1,4 +1,4 @@
-import { getDocs, collection, addDoc } from "firebase/firestore";
+import { getDocs, collection, addDoc, deleteDoc, doc } from "firebase/firestore";
 import RoomInterface from "src/Interfaces/RoomInterface";
 
 import { db } from './Firebase';
@@ -11,7 +11,14 @@ const addRoom = ( room: RoomInterface ) => {
     return addDoc( collection( db, 'rooms' ), room );
 }
 
+const deleteRoom = ( id: string ) => {
+    const docRef = doc( db, "cities", id );
+
+    return deleteDoc( docRef );
+}
+
 export {
     getRooms,
     addRoom,
+    deleteRoom,
 };

@@ -32,37 +32,43 @@ const Rooms = () => {
             // TODO: refactor this
             FirebaseService.getRooms().then(( item: any ) => {
                 let data: any = [];
-                const edit = {
-                    type: "unit",
-                    value:
-                        <Box>
-                            <Button
-                                style={{
-                                    float: 'right',
-                                    fontSize: '70%',
-                                    marginRight: '2%'
-                                }}
-                                variant='contained'
-                                color='secondary'
-                                >
-                                Delete
-                            </Button>
-                            <Button
-                                style={{ 
-                                    float: 'right',
-                                    fontSize: '70%',
-                                    marginRight: '2%'
-                                }}
-                                variant='contained'
-                                color='primary'
-                                >
-                                Edit
-                            </Button>
-                        </Box>
-                };
 
                 item.docs.map(( dt: any ) => {
                     const rw = dt.data();
+                    const edit = {
+                        type: "unit",
+                        value:
+                            <Box>
+                                <Button
+                                    style={{
+                                        float: 'right',
+                                        fontSize: '70%',
+                                        marginRight: '2%'
+                                    }}
+                                    variant='contained'
+                                    color='secondary'
+                                    onClick={
+                                        () => {
+                                            FirebaseService.deleteRoom( item.id ).then(() => {});
+                                            
+                                        }
+                                    }
+                                    >
+                                    Delete
+                                </Button>
+                                <Button
+                                    style={{ 
+                                        float: 'right',
+                                        fontSize: '70%',
+                                        marginRight: '2%'
+                                    }}
+                                    variant='contained'
+                                    color='primary'
+                                    >
+                                    Edit
+                                </Button>
+                            </Box>
+                    };
                     data = [...data, [ rw[ "name" ], rw[ "status" ], edit ]];
                 });
                 
@@ -88,7 +94,7 @@ const Rooms = () => {
 
             // TODO: refactor this
             FirebaseService.addRoom( sample_room )
-                .then(( item: any ) => {
+                .then(() => {
                     refresh();
                 }
             ).catch(( err: any ) => console.log( err ));
