@@ -1,5 +1,5 @@
 import { getDocs, collection, addDoc, deleteDoc, doc } from "firebase/firestore";
-import RoomInterface from "src/Interfaces/RoomInterface";
+import RoomInterface from "../../Interfaces/RoomInterface";
 
 import { db } from './Firebase';
 

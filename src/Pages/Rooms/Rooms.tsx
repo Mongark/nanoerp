@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as FirebaseService from '../../Firebase/FirebaseService';
+import * as FirebaseService from '../../API/Firebase/FirebaseService';
 
 import { Box, Button, Divider, Paper, Typography } from "@material-ui/core";
 import { useState } from "react";
