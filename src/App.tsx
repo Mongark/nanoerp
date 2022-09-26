@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import NavBar from './Components/NavBar/NavBar';
 import Dashboard from './Pages/Dashboard/Dashboard';
-import Rooms from './Pages/Rooms/Rooms';
+import RoomsPage from './Pages/Rooms/RoomsPage';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
           }}>
           <Routes>
             <Route path='/' element={<Dashboard />} />
-            <Route path='/rooms' element={<Rooms />} />
+            <Route path='/rooms' element={<RoomsPage />} />
           </Routes>
         </div>
         

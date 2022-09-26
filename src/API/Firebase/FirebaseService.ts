@@ -3,22 +3,22 @@ import RoomInterface from "../../Interfaces/RoomInterface";
 
 import { db } from './Firebase';
 
-const getRooms = () => {
-    return getDocs( collection( db, 'rooms' ));
+const getAll = ( collectionName: string ) => {
+    return getDocs( collection( db, collectionName ));
 }
 
-const addRoom = ( room: RoomInterface ) => {
-    return addDoc( collection( db, 'rooms' ), room );
+const addOne = ( collectionName: string, docName: RoomInterface ) => {
+    return addDoc( collection( db, collectionName ), docName );
 }
 
-const deleteRoom = ( id: string ) => {
-    const docRef = doc( db, "cities", id );
+const deleteOne = ( collectionName: string, docId: string ) => {
+    const docRef = doc( db, collectionName, docId );
 
     return deleteDoc( docRef );
 }
 
 export {
-    getRooms,
-    addRoom,
-    deleteRoom,
+    getAll,
+    addOne,
+    deleteOne,
 };
