@@ -1,7 +1,7 @@
 import { getDocs, collection, addDoc, deleteDoc, doc } from "firebase/firestore";
-import RoomInterface from "../../Interfaces/RoomInterface";
+import RoomInterface from "../../../Interfaces/RoomInterface";
 
-import { db } from './Firebase';
+import { db } from '../API/Firebase';
 
 const getAll = ( collectionName: string ) => {
     return getDocs( collection( db, collectionName ));
