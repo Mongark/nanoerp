@@ -5,7 +5,7 @@ const style = {
     padding: '2%',
 };
 
-const Page = () => {
+const Page = ( props: any ) => {
   return (
     <div>
         <Paper style={style} />

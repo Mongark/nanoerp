@@ -1,6 +1,13 @@
+import { Typography } from "@material-ui/core";
+import Page from "../../Components/Page/Page"
+
 const RoomsPage = () => {
 	return(
-		<div>Hello</div>
+		<div>
+			<Page>
+				<Typography>Hello</Typography>
+			</Page>
+		</div>
 	);
 }
 
