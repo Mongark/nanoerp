@@ -7,8 +7,8 @@ function DataTable(data: DataType) {
             <Table>
                 <TableHead>
                     <TableRow>
-                        {data.headers.map((item) => {
-                            return (<TableCell>{item}</TableCell>);
+                        {data.headers.map((item, index) => {
+                            return (<TableCell key={index}>{item}</TableCell>);
                         })}
                     </TableRow>
                 </TableHead>
