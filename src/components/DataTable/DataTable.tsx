@@ -7,8 +7,9 @@ function DataTable(data: DataType) {
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Header one</TableCell>
-                        <TableCell align="right">Header Two</TableCell>
+                        {data.headers.map((item) => {
+                            return(<TableCell>{item}</TableCell>);
+                        })}
                     </TableRow>
                 </TableHead>
                 <TableBody>
