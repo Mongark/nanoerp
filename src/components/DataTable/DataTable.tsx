@@ -8,15 +8,24 @@ function DataTable(data: DataType) {
                 <TableHead>
                     <TableRow>
                         {data.headers.map((item) => {
-                            return(<TableCell>{item}</TableCell>);
+                            return (<TableCell>{item}</TableCell>);
                         })}
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    <TableRow>
-                        <TableCell component="th" scope="row">T1</TableCell>
-                        <TableCell align="right">T2</TableCell>
-                    </TableRow>
+                    {data.body.map((item1, index1) => {
+                        return (
+                            <TableRow key={index1}>
+                                {item1.map((item2, index2) => {
+                                    return(
+                                        <TableCell key={index2}>
+                                            {item2}
+                                        </TableCell>
+                                    );
+                                })}
+                            </TableRow>
+                        );
+                    })}
                 </TableBody>
             </Table>
         </TableContainer>
