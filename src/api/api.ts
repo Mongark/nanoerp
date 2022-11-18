@@ -1,13 +1,33 @@
-class Api {
-    private base_url: string;
+import RoomType from "./types/RoomType";
 
-    constructor(base_url: string) {
-        this.base_url = base_url;
+interface EndpointType {
+    url: string;
+    type: string;
+}
+
+const endpoints: EndpointType[] = [
+    {
+        url: "http://localhost:3000/api/rooms/getOneById",
+        type: "GET_ONE_BY_ID",
+    }
+];
+
+class Endpoint {
+    private url: string;
+    private type: string;
+    private schema: any;
+
+    constructor(url: string, type: string, schema: any) {
+        this.url = url;
+        this.type = type;
+        this.schema = schema;
     }
 
-    getEndpoint(uri: string) {
-        const url = this.base_url + uri;
+    activate() {
+
     }
 }
 
-export {};
+class Api {}
+
+export { Api, Endpoint };
