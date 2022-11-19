@@ -2,6 +2,7 @@ import { Typography } from "@material-ui/core";
 import { useState } from "react";
 import axios from "axios";
 import DataTable from "../../components/DataTable/DataTable";
+import Api from "../../api/api";
 
 function formatRoomData(dt: any) {
     const headers = ["Name"];
@@ -13,14 +14,12 @@ function formatRoomData(dt: any) {
 }
 
 function RoomsPage() {
-    const url = "http://localhost:3000/api/rooms/getAll";
-
     const [data, setData] = useState({
         headers: ["Header 1", "Header 2", "Header 3"],
-        body: [[1, 2, 3], [4, 5, 6]],
+        body: [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
     });
 
-    axios.get(url).then((res) => {
+    Api.rooms.getAll().then((res) => {
         const dt = formatRoomData(res.data);
         setData(dt);
     });
