@@ -1,17 +1,8 @@
 import { Typography } from "@material-ui/core";
 import { useState } from "react";
-import axios from "axios";
 import DataTable from "../../components/DataTable/DataTable";
 import Api from "../../api/api";
-
-function formatRoomData(dt: any) {
-    const headers = ["Name"];
-    const body: any[] = [];
-    dt.map((item: any) => {
-        body.push([item.name]);
-    });
-    return { headers: headers, body: body };
-}
+import formatRoomData from "../../api/format/formatRoomData";
 
 function RoomsPage() {
     const [data, setData] = useState({
