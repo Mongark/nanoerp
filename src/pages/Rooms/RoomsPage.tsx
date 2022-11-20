@@ -1,4 +1,4 @@
-import { Button, Typography } from "@material-ui/core";
+import { Button, Container, Typography } from "@material-ui/core";
 import { useState } from "react";
 import DataTable from "../../components/DataTable/DataTable";
 import Api from "../../api/api";
@@ -20,13 +20,24 @@ function RoomsPage() {
         <div>
             <Typography variant="h4">Rooms</Typography>
 
-            <Button
-                variant="contained"
-                color="primary"
-                onClick={updateData}
+            <Container style={{ margin: 0, padding: '6px', paddingLeft: 0 }}>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={updateData}
                 >
                     Update data
-            </Button>
+                </Button>
+
+                <Button
+                    variant="contained"
+                    color="primary"
+                    style={{ marginLeft: "5px" }}
+                >
+                    Add room
+                </Button>
+            </Container>
+            
 
             <DataTable
                 headers={data.headers}
