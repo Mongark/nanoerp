@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import { useState } from "react";
 import DataTable from "../../components/DataTable/DataTable";
 import Api from "../../api/api";
@@ -10,14 +10,26 @@ function RoomsPage() {
         body: [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
     });
 
-    Api.rooms.getAll().then((res) => {
-        const dt = formatRoomData(res.data);
-        setData(dt);
-    });
+    const updateData = () => {
+        Api.rooms.getAll().then((res) => {
+            const dt = formatRoomData(res.data);
+            setData(dt);
+        });
+    };
+
+    updateData();
 
     return(
         <div>
             <Typography variant="h4">Rooms</Typography>
+
+            <Button
+                variant="contained"
+                color="primary"
+                onClick={updateData}
+                >
+                    Update data
+            </Button>
 
             <DataTable
                 headers={data.headers}
