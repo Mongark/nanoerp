@@ -5,10 +5,7 @@ import Api from "../../api/api";
 import formatRoomData from "../../api/format/formatRoomData";
 
 function RoomsPage() {
-    const [data, setData] = useState({
-        headers: ["Header 1", "Header 2", "Header 3"],
-        body: [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
-    });
+    const [data, setData] = useState({ headers: [], body: [] });
 
     const updateData = () => {
         Api.rooms.getAll().then((res) => {
