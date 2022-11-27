@@ -1,5 +1,17 @@
-import { Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, TextField, Typography } from "@material-ui/core";
+import {
+    Button,
+    Container, 
+    Dialog,
+    DialogActions, 
+    DialogContent, 
+    DialogContentText, 
+    DialogTitle, 
+    TextField, 
+    Typography
+} from "@material-ui/core";
+
 import { useState } from "react";
+
 import DataTable from "../../components/DataTable/DataTable";
 import Api from "../../api/api";
 import formatRoomData from "../../api/format/formatRoomData";
@@ -11,8 +23,7 @@ function RoomsPage() {
 
     const updateData = () => {
         Api.rooms.getAll().then((res) => {
-            const dt = formatRoomData(res.data);
-            setData(dt);
+            setData(formatRoomData(res.data));
         });
     };
 
