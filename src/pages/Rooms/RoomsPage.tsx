@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import DataTable from "../../components/DataTable/DataTable";
 import Api from "../../api/api";
 import formatRoomData from "../../api/format/formatRoomData";
+import { Add, Refresh } from "@material-ui/icons";
 
 function RoomsPage() {
     const [data, setData] = useState({ headers: [], body: [] });
@@ -37,7 +38,7 @@ function RoomsPage() {
                     color="primary"
                     onClick={updateData}
                 >
-                    Update data
+                    <Refresh />
                 </Button>
 
                 <Button
@@ -46,7 +47,7 @@ function RoomsPage() {
                     style={{ marginLeft: "5px" }}
                     onClick={() => setIsDialogOpen(true)}
                 >
-                    Add room
+                    <Add />
                 </Button>
             </Container>
             
