@@ -10,7 +10,7 @@ import {
     Typography
 } from "@material-ui/core";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import DataTable from "../../components/DataTable/DataTable";
 import Api from "../../api/api";
@@ -22,12 +22,10 @@ function RoomsPage() {
     const [roomName, setRoomName] = useState('');
 
     const updateData = () => {
-        Api.rooms.getAll().then((res) => {
-            setData(formatRoomData(res.data));
-        });
+        Api.rooms.getAll().then((res: any) => setData(formatRoomData(res.data)));
     };
 
-    updateData();
+    useEffect( updateData, [data] );
 
     return(
         <div>
