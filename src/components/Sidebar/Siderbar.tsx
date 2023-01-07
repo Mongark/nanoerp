@@ -1,6 +1,16 @@
 import { useState } from "react";
 
-export default function Sidebar() {
+export interface SidebarRoute {
+    name: string,
+    path: string,
+    element: any,
+}
+
+export interface SidebarProps {
+    routes: Array<SidebarRoute>,
+}
+
+export default function Sidebar(props: SidebarProps) {
     const [isActive, setIsActive] = useState(false);
 
     return(

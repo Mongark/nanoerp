@@ -16,13 +16,15 @@ Management software for small tourism businesses.
 
 ## Todo
 
+- [x] Create Sidebar component.
+
+- [ ] Implement `Sidebar` features
+
 - [ ] Improve `Datatable` layout.
 
 - [ ] Improve `RoomsPage` layout.
 
 - [ ] Improve `Add Room` layout
-
-- [ ] Create Sidebar component.
 
 - [ ] Add pagination to DataTable.
 

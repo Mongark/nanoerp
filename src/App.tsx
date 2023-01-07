@@ -2,18 +2,10 @@ import {
     createBrowserRouter,
     RouterProvider
 } from 'react-router-dom';
+import Sidebar, {SidebarRoute} from './components/Sidebar/Siderbar';
 
 import RoomsPage from './pages/Rooms/RoomsPage';
 
-export interface SidebarRoute {
-    name: string,
-    path: string,
-    element: any,
-}
-
-export interface SidebarProps {
-    routes: Array<SidebarRoute>,
-}
 
 function App() {
     const routes: Array<SidebarRoute> = [
@@ -30,7 +22,7 @@ function App() {
         <div>
             <RouterProvider router={router}/>
 
-
+            <Sidebar routes={routes} />
         </div>
     );
 }
