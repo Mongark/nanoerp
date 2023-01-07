@@ -4,7 +4,7 @@ Management software for small tourism businesses.
 
 ## Features
 
-- [/] Room tracking
+- [ ] Room tracking
 
 - [ ] Guests tracking
 
