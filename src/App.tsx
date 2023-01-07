@@ -6,6 +6,7 @@ import {
 import RoomsPage from './pages/Rooms/RoomsPage';
 
 export interface SidebarRoute {
+    name: string,
     path: string,
     element: any,
 }
@@ -17,6 +18,7 @@ export interface SidebarProps {
 function App() {
     const routes: Array<SidebarRoute> = [
         {
+            name: "Rooms",
             path: "/",
             element: RoomsPage(),
         }
@@ -28,7 +30,7 @@ function App() {
         <div>
             <RouterProvider router={router}/>
 
-            <Sidebar />
+
         </div>
     );
 }
