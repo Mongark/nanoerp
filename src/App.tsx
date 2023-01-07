@@ -1,8 +1,19 @@
 import {
-    Sidebar,
-    SidebarRoute
-} from './components/Sidebar/Siderbar';
+    createBrowserRouter,
+    RouterProvider
+} from 'react-router-dom';
+
+import Sidebar from './components/Sidebar/Siderbar';
 import RoomsPage from './pages/Rooms/RoomsPage';
+
+export interface SidebarRoute {
+    path: string,
+    element: any,
+}
+
+export interface SidebarProps {
+    routes: Array<SidebarRoute>,
+}
 
 function App() {
     const routes: Array<SidebarRoute> = [
@@ -12,9 +23,13 @@ function App() {
         }
     ];
 
+    const router = createBrowserRouter(routes);
+
     return (
         <div>
-            <Sidebar routes={routes}/>
+            <RouterProvider router={router}/>
+
+            <Sidebar />
         </div>
     );
 }
