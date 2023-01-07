@@ -2,3 +2,18 @@
 
 Management software for small tourism businesses.
 
+## Features
+-[/] Room tracking
+-[ ] Guests tracking
+-[ ] Booking tracking and management
+-[ ] Calendar
+-[ ] Transportation tracking: flights, transfer, etc.
+
+## Todo
+
+-[ ] Improve `Datatable` layout.
+-[ ] Improve `RoomsPage` layout.
+-[ ] Create Sidebar component.
+
+## Sidebar Design
+ - Tree-like pattern to group similar tabs.
