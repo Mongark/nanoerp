@@ -3,7 +3,6 @@ import {
     RouterProvider
 } from 'react-router-dom';
 
-import Sidebar from './components/Sidebar/Siderbar';
 import RoomsPage from './pages/Rooms/RoomsPage';
 
 export interface SidebarRoute {
