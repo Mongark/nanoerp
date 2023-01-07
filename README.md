@@ -13,7 +13,9 @@ Management software for small tourism businesses.
 
 -[ ] Improve `Datatable` layout.
 -[ ] Improve `RoomsPage` layout.
+-[ ] Improve `Add Room` layout
 -[ ] Create Sidebar component.
+-[ ] Add pagination to DataTable.
 
 ## Sidebar Design
  - Tree-like pattern to group similar tabs.
