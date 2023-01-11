@@ -21,6 +21,7 @@ import {
     Dehaze
 } from '@material-ui/icons';
 import {useState} from 'react';
+import AppHeader from './components/AppHeader/AppHeader';
 
 function App() {
     const routes: Array<SidebarRoute> = [
@@ -37,12 +38,7 @@ function App() {
 
     return (
         <div className="Application">
-            <Toolbar className="AppToolbar" >
-                <Button className="AppSidebarButton" variant="contained" onClick={() => toggleDrawer(true)}>
-                    <Dehaze />
-                </Button>
-                <Typography style={{ marginLeft: "10px" }} variant='h4'>NanoERP</Typography>
-            </Toolbar>
+            <AppHeader toggleDrawer={toggleDrawer}/>
 
             <Drawer anchor='left' open={isDrawerToggled} onClose={() => toggleDrawer(false)}>
                 {routes.map((route: SidebarRoute) => {
