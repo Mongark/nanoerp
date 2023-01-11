@@ -1,12 +1,12 @@
 import {
     Button,
-    Container, 
+    Container,
     Dialog,
-    DialogActions, 
-    DialogContent, 
-    DialogContentText, 
-    DialogTitle, 
-    TextField, 
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+    TextField,
     Typography
 } from "@material-ui/core";
 
@@ -23,7 +23,7 @@ function RoomsPage() {
     const [roomName, setRoomName] = useState('');
 
     const updateData = () => {
-        Api.rooms.getAll().then((res: any) => setData(formatRoomData(res.data)));
+        Api.rooms.getAll().then((res: AxiosResponse) => setData(formatRoomData(res.data)));
     };
 
     useEffect( updateData, [data] );
@@ -50,7 +50,7 @@ function RoomsPage() {
                     <Add />
                 </Button>
             </Container>
-            
+
 
             <DataTable
                 headers={data.headers}
