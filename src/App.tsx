@@ -9,7 +9,10 @@ import {
     RouterProvider
 } from 'react-router-dom';
 
-import { SidebarRoute } from './components/Sidebar/Siderbar';
+import {
+    SidebarRoute
+} from './components/Sidebar/Siderbar';
+
 import RoomsPage from './pages/Rooms/RoomsPage';
 
 import "./App.css";
@@ -26,14 +29,14 @@ function App() {
     const router = createBrowserRouter(routes);
 
     return (
-        <div style={{ minHeight: "100%" }}>
-            <Toolbar style={{ backgroundColor: "lightblue" }}>
+        <div className="Application">
+            <Toolbar className="AppToolbar" >
                 <Typography variant='h4'>NanoERP</Typography>
             </Toolbar>
 
-            <Paper style={{ padding: "25px" }}>
+            <div className="AppBody">
                 <RouterProvider router={router}/>
-            </Paper>
+            </div>
         </div>
     );
 }

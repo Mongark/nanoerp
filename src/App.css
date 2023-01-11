@@ -1,3 +1,18 @@
 body {
     margin: 0;
 }
+
+.Application {
+    height: 100vh;
+}
+
+.AppBody {
+    background-color: lightgrey;
+    padding: 25px;
+    height: 85vh;
+}
+
+.AppToolbar {
+    background-color: grey;
+    height: 10vh;
+}
