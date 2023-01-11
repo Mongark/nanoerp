@@ -1,5 +1,6 @@
 import {
     Button,
+    Drawer,
     Toolbar,
     Typography
 } from '@material-ui/core';
@@ -19,6 +20,7 @@ import "./App.css";
 import {
     Dehaze
 } from '@material-ui/icons';
+import {useState} from 'react';
 
 function App() {
     const routes: Array<SidebarRoute> = [
@@ -29,16 +31,22 @@ function App() {
         }
     ];
 
+    const [isDrawerToggled, toggleDrawer] = useState(false);
+
     const router = createBrowserRouter(routes);
 
     return (
         <div className="Application">
             <Toolbar className="AppToolbar" >
-                <Button className="AppSidebarButton" variant="contained">
+                <Button className="AppSidebarButton" variant="contained" onClick={() => toggleDrawer(true)}>
                     <Dehaze />
                 </Button>
                 <Typography style={{ marginLeft: "10px" }} variant='h4'>NanoERP</Typography>
             </Toolbar>
+
+            <Drawer anchor='left' open={isDrawerToggled} onClose={() => toggleDrawer(false)}>
+                Hello
+            </Drawer>
 
             <div className="AppBody">
                 <RouterProvider router={router}/>
