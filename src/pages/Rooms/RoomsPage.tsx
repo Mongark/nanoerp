@@ -16,6 +16,7 @@ import DataTable from "../../components/DataTable/DataTable";
 import Api from "../../api/api";
 import formatRoomData from "../../api/format/formatRoomData";
 import { Add, Refresh } from "@material-ui/icons";
+import {AxiosResponse} from "axios";
 
 function RoomsPage() {
     const [data, setData] = useState({ headers: [], body: [] });
@@ -23,14 +24,18 @@ function RoomsPage() {
     const [roomName, setRoomName] = useState('');
 
     const updateData = () => {
-        Api.rooms.getAll().then((res: AxiosResponse) => setData(formatRoomData(res.data)));
+        Api.rooms.getAll().then((res: AxiosResponse) => {
+            if(!res) return;
+            if(!res.data) return;
+            setData(formatRoomData(res.data));
+        });
     };
 
     useEffect( updateData, [data] );
 
     return(
         <div>
-            <Typography variant="h4">Rooms</Typography>
+            <Typography variant="h5">Rooms</Typography>
 
             <Container style={{ margin: 0, padding: '6px', paddingLeft: 0 }}>
                 <Button
