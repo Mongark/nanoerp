@@ -15,4 +15,9 @@ body {
 .AppToolbar {
     background-color: grey;
     height: 10vh;
+    padding: 0;
+}
+
+.AppSidebarButton {
+    background-color: white;
 }

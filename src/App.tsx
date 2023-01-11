@@ -1,5 +1,5 @@
 import {
-    Paper,
+    Button,
     Toolbar,
     Typography
 } from '@material-ui/core';
@@ -16,6 +16,9 @@ import {
 import RoomsPage from './pages/Rooms/RoomsPage';
 
 import "./App.css";
+import {
+    Dehaze
+} from '@material-ui/icons';
 
 function App() {
     const routes: Array<SidebarRoute> = [
@@ -31,7 +34,10 @@ function App() {
     return (
         <div className="Application">
             <Toolbar className="AppToolbar" >
-                <Typography variant='h4'>NanoERP</Typography>
+                <Button className="AppSidebarButton" variant="contained">
+                    <Dehaze />
+                </Button>
+                <Typography style={{ marginLeft: "10px" }} variant='h4'>NanoERP</Typography>
             </Toolbar>
 
             <div className="AppBody">
