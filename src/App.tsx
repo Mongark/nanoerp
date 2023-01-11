@@ -46,7 +46,11 @@ function App() {
 
             <Drawer anchor='left' open={isDrawerToggled} onClose={() => toggleDrawer(false)}>
                 {routes.map((route: SidebarRoute) => {
-                    return <Button>{route.name}</Button>
+                    return(
+                        <Button href={route.path}>
+                            {route.name}
+                        </Button>
+                    );
                 })}
             </Drawer>
 
