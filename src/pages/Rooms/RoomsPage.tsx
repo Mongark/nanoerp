@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 
 import DataTable from "../../components/DataTable/DataTable";
 import Api from "../../api/api";
-import formatRoomData from "../../api/format/formatRoomData";
+import { formatRoomData, RoomInterface } from "../../api/format/formatRoomData";
 import { Add, Refresh } from "@material-ui/icons";
 import {AxiosResponse} from "axios";
 
@@ -27,7 +27,12 @@ function RoomsPage() {
         Api.rooms.getAll().then((res: AxiosResponse) => {
             if(!res) return;
             if(!res.data) return;
-            setData(formatRoomData(res.data));
+
+            const room_data: Array<RoomInterface> = res.data;
+
+            if(!room_data) return;
+
+            setData(formatRoomData(room_data));
         });
     };
 

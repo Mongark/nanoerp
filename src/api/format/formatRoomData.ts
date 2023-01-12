@@ -1,10 +1,10 @@
-interface RoomInterface {
+export interface RoomInterface {
     __v?: number,
     _id?: string,
     name: string,
 }
 
-function formatRoomData(dt: any) {
+export function formatRoomData(dt: Array<RoomInterface>) {
     const headers = ["Name"];
     const body: Array<Array<string>> = new Array<Array<string>>();
 
@@ -14,5 +14,3 @@ function formatRoomData(dt: any) {
 
     return { headers: headers, body: body };
 }
-
-export default formatRoomData;
