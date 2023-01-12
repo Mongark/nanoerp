@@ -18,10 +18,10 @@ interface SideDrawerProps {
 export function SideDrawer(props: SideDrawerProps) {
 
     return(
-        <Drawer anchor='left' open={props.isDrawerToggled} onClose={() => toggleDrawer(false)}>
-            {props.routes.map((route: SideDrawerRoute) => {
+        <Drawer anchor='left' open={props.isDrawerToggled} onClose={() => props.toggleDrawer(false)}>
+            {props.routes.map((route: SideDrawerRoute, index: number) => {
                 return(
-                    <Button href={route.path}>
+                    <Button href={route.path} key={index}>
                         {route.name}
                     </Button>
                 );
