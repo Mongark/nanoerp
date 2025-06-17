@@ -42,12 +42,17 @@ function Rooms() {
                 {rooms.map((room) => {
                     return(
                         <tr>
-                            <td>{room.name}</td>
-                            <td>{room.capacity}</td>
-                            <td>{room.isOccupied ? "Yes" : "No"}</td>
-                            <td>{room.location}</td>
-                            <td><button>Edit</button></td>
-                            <td><button onClick={() => deleteRoom(room)}>Delete</button></td>
+                            <td>{ room.name                         }</td>
+                            <td>{ room.capacity                     }</td>
+                            <td>{ room.isOccupied   ? "Yes" : "No"  }</td>
+                            <td>{ room.location                     }</td>
+
+                            <td>
+                                <button>Edit</button>
+                            </td>
+                            <td>
+                                <button onClick={() => deleteRoom(room)}>Delete</button>
+                            </td>
                         </tr>
                     );
                 })}
