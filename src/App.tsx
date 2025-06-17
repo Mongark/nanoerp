@@ -9,7 +9,7 @@ function App() {
     <div>
       <nav className="navbar">
         <Typography variant="h4" sx={{ alignSelf: "center" }}>
-          NanoERP
+          Amazonas ERP
         </Typography>
 
         <ul className="navbar-links">

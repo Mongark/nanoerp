@@ -59,14 +59,15 @@ function Rooms() {
     };
     
     return (
-        <Paper className="page">
+        <div className="page">
             <Typography variant="h4">Rooms</Typography>
 
             <Button
                 variant="contained"
                 onClick={handle_add_room_popup_open}
+                  style={{ marginBottom: '18px', marginTop: '8px' }}
                 >
-                Add
+                Add Room
             </Button>
 
             <Modal
@@ -75,7 +76,7 @@ function Rooms() {
                 <Box sx={add_room_modal_style}>
                     <FormControl>
                         <Typography variant="h6" sx={{ marginBottom:"18px" }}>Create new room</Typography>
-                        <TextField required type="text" color='primary' label="Name" sx={{ marginBottom:"15px" }}/>
+                        <TextField required type="text" color='primary' label="Name" sx={{ marginBottom:"15px"}}/>
                         <TextField required type="number" color='primary' label="Capacity" sx={{ marginBottom:"15px" }}/>
                         <Button sx={{ marginBottom:"10px" }} color="primary" variant="contained" onClick={handle_add_room_popup_submit}>Create</Button>
                         <Button color="secondary" variant="contained" onClick={handle_add_room_popup_cancel}>Cancel</Button>
@@ -87,9 +88,10 @@ function Rooms() {
                 <Table size="small">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Name</TableCell>
-                            <TableCell>Capacity</TableCell>
-                            <TableCell>Occupied</TableCell>
+                            <TableCell style={{ fontWeight: 600 }}>Name</TableCell>
+                            <TableCell style={{ fontWeight: 600 }}>Capacity</TableCell>
+                            <TableCell style={{ fontWeight: 600 }}>Occupied</TableCell>
+                            <TableCell style={{ fontWeight: 600 }}>Location</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -101,11 +103,12 @@ function Rooms() {
                                 <TableCell component="th" scope="row">{room.name}</TableCell>
                                 <TableCell align="right">{room.capacity}</TableCell>
                                 <TableCell align="right">{(room.isOccupied) ? "Yes" : "No"}</TableCell>
+                                <TableCell align="right">{room.location}</TableCell>
                             </TableRow>);
                         })}
                     </TableBody>
                 </Table>
             </TableContainer>
-        </Paper>
+        </div>
     );
 } export default Rooms;
