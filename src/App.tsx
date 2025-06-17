@@ -1,30 +1,28 @@
 import { Outlet } from "react-router-dom";
 import "./styles.css";
 import { Link } from "react-router-dom";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 
 function App() {
   return (
     <div>
       <nav className="navbar">
-        <Typography variant="h4" sx={{ alignSelf: "center" }}>
+        <h1 style={{ alignSelf: "center" }}>
           Amazonas ERP
-        </Typography>
+        </h1>
 
         <ul className="navbar-links">
           <li>
             <Link className="navbar-link" to="/">
-              <Button variant="contained">
+              <button>
                 Dashboard
-              </Button>
+              </button>
             </Link>
           </li>
           <li>
             <Link className="navbar-link" to="/rooms">
-              <Button variant="contained">
+              <button>
                 Rooms
-              </Button>
+              </button>
             </Link>
           </li>
         </ul>
