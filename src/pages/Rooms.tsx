@@ -1,18 +1,4 @@
-import FormControl from "@mui/material/FormControl";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Modal from "@mui/material/Modal";
-import Paper from "@mui/material/Paper";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Typography from "@mui/material/Typography";
-
 import { useState } from "react";
-import TextField from "@mui/material/TextField";
 
 interface Room {
     name: string;
@@ -24,91 +10,34 @@ interface Room {
     updatedAt: Date;
 }
 
-const add_room_modal_style = {
-    position: 'absolute' as const,
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 'auto',
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    borderRadius: '14px',
-    boxShadow: 24,
-    p: 4,
-};
-
 function Rooms() {
-    const dummy_room: Room = {
-        name: "Maquis I",
-        capacity: 10,
-        isOccupied: true,
-        location: "Neverland",
-        createdBy: "William Blake",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-    };
-    const [ rooms, set_rooms ]                          = useState([dummy_room]);
-    const [ add_room_popup, toggle_add_room_popup ]     = useState(false);
+    const sampleRoom: Room = { name: "Jacob", capacity: 12, isOccupied: true, location: "Amazon", createdBy: "Joshua", createdAt: new Date(), updatedAt: new Date() };
 
-    const handle_add_room_popup_open    = () => toggle_add_room_popup( () => true  );
-    const handle_add_room_popup_cancel  = () => toggle_add_room_popup( () => false );
+    const [rooms, setRooms] = useState([sampleRoom]);
 
-    const handle_add_room_popup_submit  = () => {
-        set_rooms( (prev_rooms: any) => ([...prev_rooms, dummy_room]));
-        toggle_add_room_popup( () => false );
-    };
-    
-    return (
-        <div className="page">
-            <Typography variant="h4">Rooms</Typography>
+    return(
+        <div>
+            <h1 style={{ marginLeft: '16px' }}>Rooms</h1>
 
-            <Button
-                variant="contained"
-                onClick={handle_add_room_popup_open}
-                  style={{ marginBottom: '18px', marginTop: '8px' }}
-                >
-                Add Room
-            </Button>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Capacity</th>
+                    <th>Occupied</th>
+                    <th>Location</th>
+                </tr>
 
-            <Modal
-                open={add_room_popup}
-                >
-                <Box sx={add_room_modal_style}>
-                    <FormControl>
-                        <Typography variant="h6" sx={{ marginBottom:"18px" }}>Create new room</Typography>
-                        <TextField required type="text" color='primary' label="Name" sx={{ marginBottom:"15px"}}/>
-                        <TextField required type="number" color='primary' label="Capacity" sx={{ marginBottom:"15px" }}/>
-                        <Button sx={{ marginBottom:"10px" }} color="primary" variant="contained" onClick={handle_add_room_popup_submit}>Create</Button>
-                        <Button color="secondary" variant="contained" onClick={handle_add_room_popup_cancel}>Cancel</Button>
-                    </FormControl>
-                </Box>
-            </Modal>
-
-            <TableContainer component={Paper}>
-                <Table size="small">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell style={{ fontWeight: 600 }}>Name</TableCell>
-                            <TableCell style={{ fontWeight: 600 }}>Capacity</TableCell>
-                            <TableCell style={{ fontWeight: 600 }}>Occupied</TableCell>
-                            <TableCell style={{ fontWeight: 600 }}>Location</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {rooms.map((room: Room, key: number) => {
-                            return (<TableRow
-                                key={key}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                >
-                                <TableCell component="th" scope="row">{room.name}</TableCell>
-                                <TableCell align="right">{room.capacity}</TableCell>
-                                <TableCell align="right">{(room.isOccupied) ? "Yes" : "No"}</TableCell>
-                                <TableCell align="right">{room.location}</TableCell>
-                            </TableRow>);
-                        })}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+                {rooms.map((room) => {
+                    return(
+                        <tr>
+                            <td>{room.name}</td>
+                            <td>{room.capacity}</td>
+                            <td>{room.isOccupied ? "Yes" : "No"}</td>
+                            <td>{room.location}</td>
+                        </tr>
+                    );
+                })}
+            </table>
         </div>
     );
 } export default Rooms;

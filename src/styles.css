@@ -2,6 +2,26 @@ body {
     margin: 0;
 }
 
+table, th, td {
+  border: 1px solid black;
+}
+
+table {
+    background-color: beige;
+    padding: 16px;
+}
+
+th {
+    background-color: darkgray;
+}
+
+td:hover {
+  background-color: #D6EEEE;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: #D6BBBB;}
+
 .page {
     height: 100vh;
     padding: 30px;

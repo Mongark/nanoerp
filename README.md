@@ -7,7 +7,7 @@
  - [ ] Registration
  - [ ] Access control
 - [ ] Dashboard
-- [ ] Room reservation management system
+- [x] Room reservation management system
 - [ ] Inventory and asset management system
 - [ ] Guest management system
 - [ ] Revenue management system
