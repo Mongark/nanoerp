@@ -15,9 +15,19 @@ function Rooms() {
 
     const [rooms, setRooms] = useState([sampleRoom]);
 
+    const addRoom = (room: Room) => {
+        setRooms([...rooms, room])
+    }
+
+    const deleteRoom = (room: Room) => {
+        setRooms(rooms.filter(item => item !== room));
+    }
+
     return(
         <div>
             <h1 style={{ marginLeft: '16px' }}>Rooms</h1>
+
+            <button onClick={() => addRoom(sampleRoom)}>Create room</button>
 
             <table>
                 <tr>
@@ -25,6 +35,8 @@ function Rooms() {
                     <th>Capacity</th>
                     <th>Occupied</th>
                     <th>Location</th>
+                    <th />
+                    <th />
                 </tr>
 
                 {rooms.map((room) => {
@@ -34,6 +46,8 @@ function Rooms() {
                             <td>{room.capacity}</td>
                             <td>{room.isOccupied ? "Yes" : "No"}</td>
                             <td>{room.location}</td>
+                            <td><button>Edit</button></td>
+                            <td><button onClick={() => deleteRoom(room)}>Delete</button></td>
                         </tr>
                     );
                 })}

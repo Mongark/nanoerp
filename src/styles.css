@@ -14,13 +14,12 @@ table {
 th {
     background-color: darkgray;
 }
-
-td:hover {
-  background-color: #D6EEEE;
-  border-bottom: 1px solid #ddd;
-}
-
 tr:hover {background-color: #D6BBBB;}
+
+button {
+    padding: 12px;
+    margin: 12px;
+}
 
 .page {
     height: 100vh;
