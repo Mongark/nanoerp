@@ -10,28 +10,58 @@ interface Room {
     updatedAt: Date;
 }
 
+interface AddModalComponentProps {
+    isActive: boolean,
+}
+
+const AddRoomModalComponent =(props: AddModalComponentProps) => {
+        if(props.isActive) {
+            return(
+                <div className="addroom-modal">
+                    <div className="addroom-modal-card">
+                        <h3>Create Room</h3>
+
+                        <form>
+                            <label>Room name</label> <br />
+                            <input type="text"/>
+                            
+                            <br />
+
+                            <label>Room capacity</label> <br />
+                            <input type="text"/>
+
+                            <br />
+
+                            <label>Location</label> <br />
+                            <input type="text"/>
+
+                            <br />
+                            
+                            <input type="submit" id="addroom-modal-submitbutton" name="addroom-modal-submitbutton" value='Submit' />
+                        </form>
+                    </div>
+                </div>
+            );
+        }
+
+        return(<></>);
+    }
+
 function Rooms() {
     const sampleRoom: Room = { name: "Jacob", capacity: 12, isOccupied: true, location: "Amazon", createdBy: "Joshua", createdAt: new Date(), updatedAt: new Date() };
 
-    const [rooms, setRooms] = useState([sampleRoom]);
-
-    const addRoom = (room: Room) => {
-        setRooms([...rooms, room])
-    }
-
-    const deleteRoom = (room: Room) => {
-        setRooms(rooms.filter(item => item !== room));
-    }
+    const [ rooms, setRooms                                  ] = useState([sampleRoom]);
+    const [ isCreateRoomFormOpen, setIsCreateRoomFormOpen    ] = useState(false);
 
     return(
         <div>
             <h1 style={{ marginLeft: '16px' }}>Rooms</h1>
 
-            <button onClick={() => addRoom(sampleRoom)}>Create room</button>
+            <button onClick={() => setIsCreateRoomFormOpen(true)}>Create room</button>
 
             <table>
                 <tr>
-                    <th>Name</th>
+                    <th>Name    </th>
                     <th>Capacity</th>
                     <th>Occupied</th>
                     <th>Location</th>
@@ -57,6 +87,8 @@ function Rooms() {
                     );
                 })}
             </table>
+
+            <AddRoomModalComponent isActive={isCreateRoomFormOpen} />
         </div>
     );
 } export default Rooms;

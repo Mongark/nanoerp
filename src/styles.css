@@ -21,6 +21,31 @@ button {
     margin: 12px;
 }
 
+.addroom-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: black;
+}
+
+.addroom-modal-card {
+    width: 80vw;
+    height: 80vh;
+    background-color: white;
+    border-radius: 8px;
+    padding: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .page {
     height: 100vh;
     padding: 30px;
