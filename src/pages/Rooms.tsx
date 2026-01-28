@@ -50,8 +50,8 @@ const AddRoomModalComponent =(props: AddModalComponentProps) => {
 function Rooms() {
     const sampleRoom: Room = { name: "Jacob", capacity: 12, isOccupied: true, location: "Amazon", createdBy: "Joshua", createdAt: new Date(), updatedAt: new Date() };
 
-    const [ rooms, setRooms                                  ] = useState([sampleRoom]);
-    const [ isCreateRoomFormOpen, setIsCreateRoomFormOpen    ] = useState(false);
+    const [ rooms, setRooms ]                               = useState([ sampleRoom, sampleRoom, sampleRoom ]);
+    const [ isCreateRoomFormOpen, setIsCreateRoomFormOpen ] = useState(false);
 
     return(
         <div>
@@ -81,7 +81,7 @@ function Rooms() {
                                 <button>Edit</button>
                             </td>
                             <td>
-                                <button onClick={() => deleteRoom(room)}>Delete</button>
+                                <button>Delete</button>
                             </td>
                         </tr>
                     );

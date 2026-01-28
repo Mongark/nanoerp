@@ -4,10 +4,6 @@ import ModalComponent from "../components/ModalComponent";
 function Dashboard() {
     const [reservationModal, setReservationModal] = useState(false);
 
-    const handleNewReservation = () => {
-        setReservationModal(false);
-    }
-
     return(
         <div>
             <ModalComponent isActive={reservationModal}>
